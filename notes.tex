@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\usepackage{stile} % Required for inserting images
+
+\title{Notes on manuscript handwriting recognition}
+\author{Lorenzo Sala}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Primo tentativo}
+\textbf{Caratteristiche generali della rete}:
+\begin{itemize}
+    \item Transfer learning da ResNet50, rete importata con i pesi
+    \item Data augmentation: trasformazioni affini
+    \item Scongelo layer 2, 3, 4, 5 e fully connected layer
+    \item Durata training: $\approx$ 5 ore
+    \item Uso esclusivo di immagini grayscale
+\end{itemize}
+Accuratezza ancora da valutare, non sembra in grado di riconoscere sample out of bound
+Problema: forse sto sbagliando a normalizzare i dati. Potrei provare a mettere anche le altre variazioni come canali dei tensori (ResNet chiede immagini RGB quindi ora sto semplicemente triplicando il canale grayscale).
+\end{document}
+
